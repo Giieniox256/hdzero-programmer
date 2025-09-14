@@ -1,0 +1,18 @@
+[project]
+name = "hdzero-programmer"
+version = "1.0.3"
+description = "programmer for hdzero"
+authors = [
+    { name = "Giieniox265", email = "kowalik.piotr256@gmail.com" }
+]
+readme = "README.md"
+requires-python = ">=3.12, <3.14"
+dependencies = [
+    "Pyside6(==6.9.2)",
+    "black (>=25.1.0,<26.0.0)",
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
