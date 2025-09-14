@@ -57,6 +57,11 @@
     <string>Close</string>
    </property>
   </action>
+  <action name="actionn">
+   <property name="text">
+    <string>n</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

@@ -1,6 +1,6 @@
 from pathlib import Path
 from PySide6.QtUiTools import QUiLoader
-from PySide6.QtWidgets import QMainWindow, QPushButton, QWidget
+from PySide6.QtWidgets import QMainWindow
 from PySide6.QtGui import QAction
 
 
@@ -29,4 +29,8 @@ class MainWindow(QMainWindow):
         self.main_window.show()
 
     def close_app(self):
+        """
+        Close the main window widget.
+        :return:
+        """
         self.main_window.close()
