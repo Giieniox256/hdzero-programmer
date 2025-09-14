@@ -18,3 +18,9 @@ Coming soon...
 2. Use black code formatter with line length 110 characters.
 3. Use flake8 for best code quality.
 4. To run app type HDZero_programmer_2.py
+
+### Compile resources
+
+```shell
+pyside6-rcc resource/QrcFiles/image_resources.qrc -o resource/QrcFiles/image_resources.py
+```
