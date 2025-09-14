@@ -8,7 +8,7 @@ Version used in project - Python 3.12
 pyinstaller ./hdzero_programmer.py --onefile
 ```
 
-## Generate exe using cxfreeze
+## Generate exe using cxfreeze Windows, MacOs
 
 Coming soon...
 
