@@ -22,5 +22,5 @@ Coming soon...
 ### Compile resources
 
 ```shell
-pyside6-rcc resource/QrcFiles/image_resources.qrc -o resource/QrcFiles/image_resources.py
+pyside6-rcc resource/resources.qrc -o resource/resources.py
 ```

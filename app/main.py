@@ -2,6 +2,7 @@ from pathlib import Path
 from PySide6.QtUiTools import QUiLoader
 from PySide6.QtWidgets import QMainWindow
 from PySide6.QtGui import QAction, QIcon
+from PySide6.QtCore import QSize
 
 
 class MainWindow(QMainWindow):
@@ -16,13 +17,14 @@ class MainWindow(QMainWindow):
         super().__init__()
         loader = QUiLoader()
         main_window_path_file = Path(__file__).parent.parent / "ui/main_window.ui"
-        icon_path = Path(__file__).parent.parent / "Images" / "HDZeroIcon.ico"
+        icon_path = Path(__file__).parent.parent / "resource" / "icons" / "HDZeroIcon.ico"
         self.main_window = loader.load(main_window_path_file)
         main_icon = QIcon(str(icon_path))
-        self.main_window.setWindowIcon(main_icon)
+        # main_icon.setIconSize(QSize(32, 32))
+        # self.main_window.setWindowIcon(main_icon)
 
-        self.action_close_app = self.main_window.findChild(QAction, "actionClose")
-        self.action_close_app.triggered.connect(self.close_app)
+        # self.action_close_app = self.main_window.findChild(QAction, "actionClose")
+        # self.action_close_app.triggered.connect(self.close_app)
 
     def show(self):
         """
