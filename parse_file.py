@@ -8,7 +8,7 @@ class parse:
         self.vtx_common_path = "resource/vtx_common"
         self.event_vrx_releases_path = "resource/event_vrx_releases"
         self.monitor_releases_path = "resource/monitor_releases"
-        self.vtx_tragets_image_path = "resource/vtx_targets.png"
+        self.vtx_tragets_image_path = "resource/Images/vtx_targets.png"
 
         self.vtx_info = {}
         self.event_vrx_info = {}
