@@ -2,7 +2,6 @@ from pathlib import Path
 from PySide6.QtUiTools import QUiLoader
 from PySide6.QtWidgets import QMainWindow
 from PySide6.QtGui import QAction, QIcon
-from PySide6.QtCore import QSize
 
 
 class MainWindow(QMainWindow):

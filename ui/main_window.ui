@@ -24,10 +24,20 @@
     <normaloff>:/icons/icons/HDZeroIcon.ico</normaloff>:/icons/icons/HDZeroIcon.ico</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">QPushButton:hover{
-	background-color: rgb(22, 168, 0);
+   <string notr="true">*{
+	border: none;
+	background-color: transparent;
+	background: none;
+	padding: 5;
+	color: #fff;
 }
-</string>
+
+#leftMenuSubContainer QPushButton{
+	text-align: left;
+	padding: 5px, 5px 10px 10px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}</string>
   </property>
   <property name="iconSize">
    <size>
@@ -37,14 +47,62 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
     <item>
      <widget class="QWidget" name="leftMenuContainer" native="true">
       <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="leftMargin">
+        <number>3</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
        <item alignment="Qt::AlignmentFlag::AlignLeft">
         <widget class="QWidget" name="leftMenuSubContainer" native="true">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item alignment="Qt::AlignmentFlag::AlignTop">
            <widget class="QFrame" name="frame">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="toolTip">
+             <string>Menu</string>
+            </property>
             <property name="frameShape">
              <enum>QFrame::Shape::StyledPanel</enum>
             </property>
@@ -52,8 +110,23 @@
              <enum>QFrame::Shadow::Raised</enum>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_3">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
              <item>
               <widget class="QPushButton" name="btn_menu">
+               <property name="toolTip">
+                <string>Menu</string>
+               </property>
                <property name="autoFillBackground">
                 <bool>false</bool>
                </property>
@@ -66,8 +139,8 @@
                </property>
                <property name="iconSize">
                 <size>
-                 <width>32</width>
-                 <height>32</height>
+                 <width>24</width>
+                 <height>24</height>
                 </size>
                </property>
               </widget>
@@ -78,7 +151,7 @@
           <item>
            <widget class="QFrame" name="frame_2">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
@@ -90,14 +163,32 @@
              <enum>QFrame::Shadow::Raised</enum>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_4">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>10</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
              <item>
-              <widget class="QPushButton" name="pushButton_3">
+              <widget class="QPushButton" name="btn_left_sidebar_home">
                <property name="font">
                 <font>
                  <family>Courier</family>
                  <pointsize>12</pointsize>
                  <bold>false</bold>
                 </font>
+               </property>
+               <property name="toolTip">
+                <string>Home</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background: rgb(65, 65, 65);</string>
                </property>
                <property name="text">
                 <string>Home</string>
@@ -115,7 +206,10 @@
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_2">
+              <widget class="QPushButton" name="btn_left_sidebar_vtx">
+               <property name="toolTip">
+                <string>VTX</string>
+               </property>
                <property name="text">
                 <string>VTX</string>
                </property>
@@ -134,16 +228,35 @@
              <item>
               <widget class="QPushButton" name="pushButton_4">
                <property name="text">
-                <string>PushButton</string>
+                <string>N/A</string>
                </property>
                <property name="icon">
                 <iconset>
                  <normaloff>:/icons/tg/HDZeroIcon.ico</normaloff>:/icons/tg/HDZeroIcon.ico</iconset>
                </property>
+               <property name="iconSize">
+                <size>
+                 <width>24</width>
+                 <height>24</height>
+                </size>
+               </property>
               </widget>
              </item>
             </layout>
            </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
           </item>
           <item alignment="Qt::AlignmentFlag::AlignBottom">
            <widget class="QFrame" name="frame_3">
@@ -154,8 +267,23 @@
              <enum>QFrame::Shadow::Raised</enum>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_5">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>10</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>10</number>
+             </property>
              <item>
-              <widget class="QPushButton" name="pushButton_5">
+              <widget class="QPushButton" name="btn_left_sidebar_settings">
+               <property name="toolTip">
+                <string>Settings</string>
+               </property>
                <property name="text">
                 <string>Settings</string>
                </property>
@@ -174,14 +302,34 @@
              <item>
               <widget class="QPushButton" name="pushButton_6">
                <property name="text">
-                <string>PushButton</string>
+                <string>Information</string>
+               </property>
+               <property name="icon">
+                <iconset resource="../resource/resources.qrc">
+                 <normaloff>:/icons/icons/alert-circle.svg</normaloff>:/icons/icons/alert-circle.svg</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>24</width>
+                 <height>24</height>
+                </size>
                </property>
               </widget>
              </item>
              <item>
               <widget class="QPushButton" name="pushButton_7">
                <property name="text">
-                <string>PushButton</string>
+                <string>Help</string>
+               </property>
+               <property name="icon">
+                <iconset resource="../resource/resources.qrc">
+                 <normaloff>:/icons/icons/help-circle.svg</normaloff>:/icons/icons/help-circle.svg</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>24</width>
+                 <height>24</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -195,11 +343,108 @@
      </widget>
     </item>
     <item>
+     <widget class="QWidget" name="centerMenuContainer" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <widget class="QWidget" name="centerMenuSubContainer" native="true">
+         <layout class="QVBoxLayout" name="verticalLayout_7">
+          <item>
+           <widget class="QFrame" name="frame_4">
+            <property name="frameShape">
+             <enum>QFrame::Shape::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Shadow::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <item>
+              <widget class="QLabel" name="label_info_extended_bmenu">
+               <property name="text">
+                <string>Extend Menu</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_more_close">
+               <property name="text">
+                <string>Close</string>
+               </property>
+               <property name="icon">
+                <iconset resource="../resource/resources.qrc">
+                 <normaloff>:/icons/icons/x-circle.svg</normaloff>:/icons/icons/x-circle.svg</iconset>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QStackedWidget" name="stackedWidget">
+            <widget class="QWidget" name="page">
+             <layout class="QVBoxLayout" name="verticalLayout_8">
+              <item>
+               <widget class="QLabel" name="label_extended_menu_settings">
+                <property name="text">
+                 <string>Settings</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignTop</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="page_2">
+             <layout class="QVBoxLayout" name="verticalLayout_9">
+              <item>
+               <widget class="QLabel" name="label_extended_menu_information">
+                <property name="text">
+                 <string>Information</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignTop</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="page_3">
+             <layout class="QVBoxLayout" name="verticalLayout_10">
+              <item>
+               <widget class="QLabel" name="label_extended_menu_help">
+                <property name="text">
+                 <string>Help</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignTop</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
      <widget class="QWidget" name="mainBodyContainer" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="font">
        <font>
         <bold>true</bold>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 213, 1);</string>
       </property>
      </widget>
     </item>
