@@ -2,12 +2,6 @@
 
 Version used in project - Python 3.12
 
-## Generate exe using pyisntaller
-
-```
-pyinstaller ./hdzero_programmer.py --onefile
-```
-
 ## Generate exe using cxfreeze Windows, MacOs
 
 Coming soon...
@@ -21,6 +15,9 @@ Coming soon...
 
 ### Compile resources
 
+If you add resources into the UI designer, remember to recompile resources. Otherwise, images may be not correctly 
+displayed. 
+
 ```shell
-pyside6-rcc resource/QrcFiles/image_resources.qrc -o resource/QrcFiles/image_resources.py
+pyside6-rcc resource/resources.qrc -o resource/resources.py
 ```

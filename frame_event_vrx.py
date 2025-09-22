@@ -9,7 +9,7 @@ class frame_event_vrx:
         self._frame = tk.Frame(parent)
         parent.add(self._frame, text="Event VRX")
 
-        self.image_path = "resource/event_vrx.png"
+        self.image_path = "resource/Images/event_vrx.png"
         self.show_image()
 
     def frame(self):

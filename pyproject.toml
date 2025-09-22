@@ -10,9 +10,12 @@ requires-python = ">=3.12, <3.14"
 dependencies = [
     "Pyside6(==6.9.2)",
     "black (>=25.1.0,<26.0.0)",
+    "QT-PyQt-PySide-Custom-Widgets (==1.0.2)"
 ]
 
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
+requires = [
+    "pyside6>=6.9.2"
+]
 build-backend = "poetry.core.masonry.api"

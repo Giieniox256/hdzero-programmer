@@ -3,7 +3,7 @@ import os
 import sys
 import shutil
 from main_window import ui_thread_proc
-from download import download_thread_proc
+from Download import download_thread_proc
 from ch341 import ch341_thread_proc
 
 
