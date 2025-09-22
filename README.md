@@ -15,6 +15,9 @@ Coming soon...
 
 ### Compile resources
 
+If you add resources into the UI designer, remember to recompile resources. Otherwise, images may be not correctly 
+displayed. 
+
 ```shell
 pyside6-rcc resource/resources.qrc -o resource/resources.py
 ```

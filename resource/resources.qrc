@@ -289,4 +289,7 @@
     <file>icons/zoom-in.svg</file>
     <file>icons/zoom-out.svg</file>
   </qresource>
+  <qresource prefix="images">
+    <file>Images/icon256.png</file>
+  </qresource>
 </RCC>
