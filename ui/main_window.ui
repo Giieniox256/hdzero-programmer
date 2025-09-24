@@ -30,7 +30,21 @@
     <normaloff>:/icons/icons/HDZeroIcon.ico</normaloff>:/icons/icons/HDZeroIcon.ico</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">QPushButton{
+   <string notr="true">#left_sidebar_frame{
+	background-color: #323232;
+	border: 1px solid #464646;
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+
+#main_frame{
+    background-color: #323232;
+	border: 1px solid #464646;
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+
+QPushButton{
 	padding: 6px;
 	text-align: left;
 	border: 2px solid #464646;
@@ -49,6 +63,21 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
+    <property name="spacing">
+     <number>9</number>
+    </property>
+    <property name="leftMargin">
+     <number>10</number>
+    </property>
+    <property name="topMargin">
+     <number>10</number>
+    </property>
+    <property name="rightMargin">
+     <number>10</number>
+    </property>
+    <property name="bottomMargin">
+     <number>10</number>
+    </property>
     <item>
      <widget class="QFrame" name="left_sidebar_frame">
       <property name="minimumSize">
@@ -70,6 +99,18 @@
        <enum>QFrame::Shadow::Raised</enum>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="leftMargin">
+        <number>9</number>
+       </property>
+       <property name="topMargin">
+        <number>9</number>
+       </property>
+       <property name="rightMargin">
+        <number>9</number>
+       </property>
+       <property name="bottomMargin">
+        <number>9</number>
+       </property>
        <item>
         <widget class="QWidget" name="sidebar_header" native="true">
          <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -273,7 +314,7 @@
           </sizepolicy>
          </property>
          <property name="currentIndex">
-          <number>3</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="page_home">
           <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -363,7 +404,14 @@
             </widget>
            </item>
            <item>
-            <widget class="QWidget" name="widget_6" native="true"/>
+            <widget class="QWidget" name="widget_6" native="true">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>
