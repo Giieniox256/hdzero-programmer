@@ -1,6 +1,9 @@
 import sys
-import resource.resources
 from PySide6.QtWidgets import QApplication
+### do not remove lines below!! ###
+import src.resources
+import PySide6.QtSvg
+##########
 from app.main import MainWindow
 
 if __name__ == "__main__":

@@ -1,6 +1,5 @@
 <RCC>
   <qresource prefix="icons">
-    <file>icons/HDZeroIcon.ico</file>
     <file>icons/activity.svg</file>
     <file>icons/airplay.svg</file>
     <file>icons/alert-circle.svg</file>
@@ -129,6 +128,7 @@
     <file>icons/grid.svg</file>
     <file>icons/hard-drive.svg</file>
     <file>icons/hash.svg</file>
+    <file>icons/HDZeroIcon.ico</file>
     <file>icons/headphones.svg</file>
     <file>icons/heart.svg</file>
     <file>icons/help-circle.svg</file>
@@ -290,6 +290,9 @@
     <file>icons/zoom-out.svg</file>
   </qresource>
   <qresource prefix="images">
+    <file>Images/event_vrx.png</file>
+    <file>Images/icon32.png</file>
     <file>Images/icon256.png</file>
+    <file>Images/vtx_targets.png</file>
   </qresource>
 </RCC>

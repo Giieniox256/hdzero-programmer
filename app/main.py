@@ -1,7 +1,11 @@
+import pathlib
+import sys
 from pathlib import Path
+
 from PySide6.QtUiTools import QUiLoader
-from PySide6.QtWidgets import QMainWindow
-from PySide6.QtGui import QAction, QIcon
+from PySide6.QtWidgets import QMainWindow, QFrame, QPushButton
+from PySide6.QtCore import QPropertyAnimation, QEasingCurve
+from PySide6.QtGui import QIcon
 
 
 class MainWindow(QMainWindow):
@@ -11,30 +15,54 @@ class MainWindow(QMainWindow):
 
     def __init__(self):
         """
-        Constructor. Initialize a window.
+        Load window and connect widgets.
         """
         super().__init__()
         loader = QUiLoader()
-        main_window_path_file = Path(__file__).parent.parent / "ui/main_window.ui"
-        icon_path = Path(__file__).parent.parent / "resource" / "icons" / "HDZeroIcon.ico"
-        self.main_window = loader.load(main_window_path_file)
-        main_icon = QIcon(str(icon_path))
-        # main_icon.setIconSize(QSize(32, 32))
-        # self.main_window.setWindowIcon(main_icon)
+        if getattr(sys, 'frozen', False):
+            ui_file = Path(__file__).parent.parent.parent / "ui" / "main_window.ui"
+        else:
+            ui_file = Path(__file__).parent.parent / "ui" / "main_window.ui"
+        self.ui = loader.load(ui_file)
+        self.setCentralWidget(self.ui)
 
-        # self.action_close_app = self.main_window.findChild(QAction, "actionClose")
-        # self.action_close_app.triggered.connect(self.close_app)
+        # setup title and icon
+        self.setWindowTitle("HDZero Programmer 2.0")
+        icon_pth = pathlib.Path(__file__).parent.parent / "src" / "icons" / "HDZeroIcon.ico"
+        self.setWindowIcon(QIcon(str(icon_pth)))
 
-    def show(self):
-        """
-        Show the main window widget.
-        :return:
-        """
-        self.main_window.show()
+        # assign widgets objet with variables
+        self.left_sidebar_frame = self.ui.findChild(QFrame, "left_sidebar_frame")
+        self.btn_toggle_menu = self.ui.findChild(QPushButton, "btn_toggle_menu")
 
-    def close_app(self):
+        # left sidebar run settings
+        self.is_container_expanded = True
+        self.expanded_width_on_start = 200
+
+        # connect widgets with func
+        self.btn_toggle_menu.clicked.connect(self.toggle_left_sidebar_frame_width)
+
+    def toggle_left_sidebar_frame_width(self) -> None:
         """
-        Close the main window widget.
-        :return:
+        Animation sidebar
+
+        :return: None
         """
-        self.main_window.close()
+        start_width = self.left_sidebar_frame.width()
+
+        # setup animate properties
+        if self.is_container_expanded:
+            end_width = 58
+        else:
+            end_width = self.expanded_width_on_start
+
+        # create animation properties
+        self.animation = QPropertyAnimation(self.left_sidebar_frame, b"maximumWidth")
+        self.animation.setDuration(300)
+        self.animation.setStartValue(start_width)
+        self.animation.setEndValue(end_width)
+        self.animation.setEasingCurve(QEasingCurve.Type.InOutCubic)
+
+        self.animation.start()
+
+        self.is_container_expanded = not self.is_container_expanded
