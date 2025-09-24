@@ -15,9 +15,16 @@ Coming soon...
 
 ### Compile resources
 
-If you add resources into the UI designer, remember to recompile resources. Otherwise, images may be not correctly 
-displayed. 
+If you add resources into the UI designer, remember to recompile resources. Otherwise, images may be not correctly
+displayed.
 
 ```shell
-pyside6-rcc resource/resources.qrc -o resource/resources.py
+pyside6-rcc src/resources.qrc -o src/resources.py
 ```
+Remember to add imports to load svg. This imports can be found in .HDZero_programmer_2.py
+
+```python
+import src.resources
+import PySide6.QtSvg
+```
+    
