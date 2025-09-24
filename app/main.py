@@ -3,7 +3,7 @@ import sys
 from pathlib import Path
 
 from PySide6.QtUiTools import QUiLoader
-from PySide6.QtWidgets import QMainWindow, QFrame, QPushButton
+from PySide6.QtWidgets import QMainWindow, QFrame, QPushButton, QStackedWidget
 from PySide6.QtCore import QPropertyAnimation, QEasingCurve
 from PySide6.QtGui import QIcon
 
@@ -27,20 +27,34 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(self.ui)
 
         # setup title and icon
-        self.setWindowTitle("HDZero Programmer 2.0")
+        self.setWindowTitle("HDZero Programmer v2")
         icon_pth = pathlib.Path(__file__).parent.parent / "src" / "icons" / "HDZeroIcon.ico"
         self.setWindowIcon(QIcon(str(icon_pth)))
 
         # assign widgets objet with variables
         self.left_sidebar_frame = self.ui.findChild(QFrame, "left_sidebar_frame")
         self.btn_toggle_menu = self.ui.findChild(QPushButton, "btn_toggle_menu")
+        self.stacked_widget = self.ui.findChild(QStackedWidget, "stackedWidget")
+        self.btn_sidebar_home = self.ui.findChild(QPushButton, "btn_sidebar_home")
+        self.btn_sidebar_vtx = self.ui.findChild(QPushButton, "btn_sidebar_vtx")
+        self.btn_sidebar_eventVrx = self.ui.findChild(QPushButton, "btn_sidebar_eventVrx")
+        self.btn_sidebar_info = self.ui.findChild(QPushButton, "btn_sidebar_info")
+        self.btn_sidebar_settings = self.ui.findChild(QPushButton, "btn_sidebar_settings")
 
         # left sidebar run settings
         self.is_container_expanded = True
         self.expanded_width_on_start = 200
 
+        # pre-setup startup page
+        self.stacked_widget.setCurrentIndex(0)
+
         # connect widgets with func
         self.btn_toggle_menu.clicked.connect(self.toggle_left_sidebar_frame_width)
+        self.btn_sidebar_home.clicked.connect(lambda: self.stacked_widget.setCurrentIndex(0))
+        self.btn_sidebar_vtx.clicked.connect(lambda: self.stacked_widget.setCurrentIndex(1))
+        self.btn_sidebar_info.clicked.connect(lambda: self.stacked_widget.setCurrentIndex(2))
+        self.btn_sidebar_settings.clicked.connect(lambda: self.stacked_widget.setCurrentIndex(3))
+        self.btn_sidebar_eventVrx.clicked.connect(lambda: self.stacked_widget.setCurrentIndex(4))
 
     def toggle_left_sidebar_frame_width(self) -> None:
         """
