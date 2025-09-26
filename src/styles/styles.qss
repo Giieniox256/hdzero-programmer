@@ -22,7 +22,7 @@
 #frame_vtx_buttons {
     background-color: #3a3a3c;
     border-radius: 5px;
-    border: 1px solid #33FF33;
+    border: 1px solid #363636;
 }
 
 QPushButton {
@@ -69,4 +69,21 @@ QPushButton:pressed {
     border: 1px solid #48484a;
     selection-background-color: #0a84ff;
     selection-color: #ffffff;
+}
+
+#progressBar_vtx{
+    border: 2px solid #3a3f47;
+    border-radius: 10px;
+    background-color: #22272e;
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: bold;
+    height: 20px;
+}
+
+#progressBar_vtx:chunk{
+        background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                stop:0 #4caf50, stop:1 #087f23);
+    border-radius: 8px;
+    margin: 1px;
 }
