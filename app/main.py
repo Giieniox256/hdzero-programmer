@@ -3,9 +3,11 @@ import sys
 from pathlib import Path
 
 from PySide6.QtUiTools import QUiLoader
-from PySide6.QtWidgets import QMainWindow, QFrame, QPushButton, QStackedWidget
+from PySide6.QtWidgets import QMainWindow, QFrame, QPushButton, QStackedWidget, QFileDialog, QTableView, QTextBrowser
 from PySide6.QtCore import QPropertyAnimation, QEasingCurve
-from PySide6.QtGui import QIcon
+from PySide6.QtGui import QIcon, QTextCursor
+
+from app.core.CoreInterface import CoreInterface
 
 
 class MainWindow(QMainWindow):
@@ -26,6 +28,12 @@ class MainWindow(QMainWindow):
         self.ui = loader.load(ui_file)
         self.setCentralWidget(self.ui)
 
+        # load core
+        self.core = CoreInterface()
+
+        # load style sheet
+        self.setStyleSheet(self.load_style_from_file())
+
         # setup title and icon
         self.setWindowTitle("HDZero Programmer v2")
         icon_pth = pathlib.Path(__file__).parent.parent / "src" / "icons" / "HDZeroIcon.ico"
@@ -40,6 +48,9 @@ class MainWindow(QMainWindow):
         self.btn_sidebar_eventVrx = self.ui.findChild(QPushButton, "btn_sidebar_eventVrx")
         self.btn_sidebar_info = self.ui.findChild(QPushButton, "btn_sidebar_info")
         self.btn_sidebar_settings = self.ui.findChild(QPushButton, "btn_sidebar_settings")
+        self.btn_load_fw_local_vtx = self.ui.findChild(QPushButton, "btn_load_fw_local_vtx")
+        self.tb_vtx = self.ui.findChild(QTextBrowser, "tb_vtx")
+        self.tb_vtx.setReadOnly(True)
 
         # left sidebar run settings
         self.is_container_expanded = True
@@ -55,6 +66,7 @@ class MainWindow(QMainWindow):
         self.btn_sidebar_info.clicked.connect(lambda: self.stacked_widget.setCurrentIndex(2))
         self.btn_sidebar_settings.clicked.connect(lambda: self.stacked_widget.setCurrentIndex(3))
         self.btn_sidebar_eventVrx.clicked.connect(lambda: self.stacked_widget.setCurrentIndex(4))
+        self.btn_load_fw_local_vtx.clicked.connect(self.on_load_fw_local_vtx)
 
     def toggle_left_sidebar_frame_width(self) -> None:
         """
@@ -66,7 +78,7 @@ class MainWindow(QMainWindow):
 
         # setup animate properties
         if self.is_container_expanded:
-            end_width = 58
+            end_width = 65
         else:
             end_width = self.expanded_width_on_start
 
@@ -80,3 +92,23 @@ class MainWindow(QMainWindow):
         self.animation.start()
 
         self.is_container_expanded = not self.is_container_expanded
+
+    @staticmethod
+    def load_style_from_file():
+        style_path = pathlib.Path(__file__).parent.parent / "src" / "styles" / "styles.qss"
+        with open(style_path, "r") as f:
+            style_sheet = f.read()
+            return style_sheet
+
+    def select_file(self) -> tuple[str, str]:
+        """Select a path using the os window"""
+        return QFileDialog.getOpenFileName(self, "Choose file", "", "Bin(*.bin);;All Files (*)")
+
+    def on_load_fw_local_vtx(self) -> None:
+        """Choose a file to flash for vtx"""
+        path_to_file = self.select_file()
+        if len(path_to_file[0]) > 0:
+            _f = self.core.file_path = path_to_file[0]
+        else:
+            _f = "Error!! -> Wrong file selected"
+        self.tb_vtx.setText(f"Bin File: {_f}")
