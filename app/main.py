@@ -5,9 +5,11 @@ from pathlib import Path
 from PySide6.QtUiTools import QUiLoader
 from PySide6.QtWidgets import QMainWindow, QFrame, QPushButton, QStackedWidget, QFileDialog, QTableView, QTextBrowser
 from PySide6.QtCore import QPropertyAnimation, QEasingCurve
-from PySide6.QtGui import QIcon, QTextCursor
-
+from PySide6.QtGui import QIcon
+from app.core.custom_logger import setup_logger
 from app.core.CoreInterface import CoreInterface
+
+logger = setup_logger()
 
 
 class MainWindow(QMainWindow):
@@ -22,9 +24,10 @@ class MainWindow(QMainWindow):
         super().__init__()
         loader = QUiLoader()
         if getattr(sys, 'frozen', False):
-            ui_file = Path(__file__).parent.parent.parent / "ui" / "main_window.ui"
+            ui_file = Path(__file__).parent.parent.parent/ "lib" / "ui" / "main_window.ui"
         else:
             ui_file = Path(__file__).parent.parent / "ui" / "main_window.ui"
+        logger.info(f"Loading {ui_file}")
         self.ui = loader.load(ui_file)
         self.setCentralWidget(self.ui)
 
@@ -69,11 +72,7 @@ class MainWindow(QMainWindow):
         self.btn_load_fw_local_vtx.clicked.connect(self.on_load_fw_local_vtx)
 
     def toggle_left_sidebar_frame_width(self) -> None:
-        """
-        Animation sidebar
-
-        :return: None
-        """
+        """Animation sidebar"""
         start_width = self.left_sidebar_frame.width()
 
         # setup animate properties
@@ -95,6 +94,7 @@ class MainWindow(QMainWindow):
 
     @staticmethod
     def load_style_from_file():
+        """Load window style from the file."""
         style_path = pathlib.Path(__file__).parent.parent / "src" / "styles" / "styles.qss"
         with open(style_path, "r") as f:
             style_sheet = f.read()

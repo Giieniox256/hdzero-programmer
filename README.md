@@ -4,6 +4,12 @@ Version used in project - Python 3.12
 
 ## Generate exe using cxfreeze Windows, MacOs
 
+#### Bulid exe for Windows OS
+
+```shell
+$ python setup.py build
+```
+
 Coming soon...
 
 ## For Developers
@@ -21,7 +27,7 @@ displayed.
 ```shell
 pyside6-rcc src/resources.qrc -o src/resources.py
 ```
-Remember to add imports to load svg. This imports can be found in .HDZero_programmer_2.py
+Remember to add imports to load svg. These imports can be found in .HDZero_programmer_2.py
 
 ```python
 import src.resources
